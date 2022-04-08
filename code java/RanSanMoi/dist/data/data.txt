@@ -1,0 +1,10 @@
+DTP 4 4800
+Phuc1 3 3500
+NoName 2 1400
+google 2 1300
+abc1 1 600
+Hung1 1 600
+null 1 600
+test 1 500
+Nam 1 400
+null 1 400

@@ -1,0 +1,6 @@
+:root {
+    --bien-mau: rgb(77, 126, 75);
+}
+h1 {
+    color: var(--bien-mau)
+}   

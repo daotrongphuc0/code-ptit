@@ -1,0 +1,7 @@
+mo cmd 
+
+
+gi dong sau de cai pygame
+
+
+-m pip install pgzero

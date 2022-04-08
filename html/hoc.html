@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <title>vi du</title>
+    <style>
+        #id_tmp{
+            color: red
+        }
+        .class_tmp{
+            color: aqua;
+        }
+        .box{
+            width: 60px;
+            height: 60px; 
+            color: coral;
+            padding: 10px;
+            border: 2px dashed rgb(82, 14, 14);
+            box-sizing: border-box;
+            background-clip: padding-box;
+        }
+        .header{
+            width: 200px;
+            height: 200px;
+            background-image: linear-gradient(0,rgb(8, 128, 76,0.5),rgb(184, 245, 127,0.5)),
+            url(https://img6.thuthuatphanmem.vn/uploads/2022/01/25/hinh-anh-gai-xinh-selfie-che-mat_040409482.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <link rel="stylesheet" href="hoc.css">
+</head>
+<body>
+    <!-- comment-->
+    <h1>thẻ html thông dụng</h1> <!-- ví dụ về đặt biến -->
+    <p>thẻ đoạn văn</p>
+    <a href="https://www.facebook.com/">thẻ liên kết</a>
+    <br> <!-- the xuong dong-->
+    <img src="pt1.jpg" alt="DTP" style="width:100px;height:100px;">
+    <ul><!-- thẻ danh sách-->
+        <li>dòng 1 </li>
+        <li>dòng 2</li>
+    </ul>
+    <br>
+    <table>
+        <thead>
+            <th>STT</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>DTP</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <input type="text"> <!-- nhap du lieu-->
+    <input type="checkbox">
+    <input type="checkbox">
+    <input name= tmp type="radio">
+    <input name= tmp type="radio">
+    <input name= tmp type="radio">
+    <button>đăng kí</button> <!-- nút-->
+    <h2 id = "id_tmp"> sử dụng Id</h2> <!-- id k được phép trùng-->
+    <h2 class="class_tmp"> sử dụng class</h2>
+    <!-- Đơn vị-->
+    <!-- Đơn vị tuyệt đối(absolute units) : px-->
+    <!-- Đơn vị tương đối(relative units): 
+    - % phụ thuộc vào % thẻ chứa nó
+    - rem phụ thuộc vào font-size trong thẻ html 
+    - em phụ thuộc vào thẻ gần nhất chứa nó chứa thuộc tính font-size
+    - vw là % chiều ngang màn hình hiển thị 
+    - vh là % chiều dài màn hình hiển thị-->
+
+    <!-- box sizing -->
+    <div class ="box">
+        box tmp
+        <!-- 
+        bg-clip đổ màu từ phần nào (padding-box, content-box)
+        box sizing: border-box là tổng kích thước padding và border bằng width va height -->
+    </div>
+    <br>
+    <div class="header"></div>
+</body>
