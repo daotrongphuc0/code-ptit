@@ -1,0 +1,33 @@
+form {
+    background: rgb(167, 171, 193);
+    margin: 0 auto;
+    width: 300px;
+    border-radius: 5px;
+}
+form table {
+    width: 100%;
+
+}
+form table tr,form table td {
+    border: 1px solid rgb(20, 19, 19);
+}
+form table tr:first-child input {
+    height: 50px;
+    padding: 0 10px;
+    font-weight: 500;
+    
+}
+form table tr:not(:first-child) td {
+    height: 70px;
+
+}
+form table tr:not(:first-child) td input {
+    height: 100%;
+    background-color: rgb(123, 182, 106);
+}
+form table input {
+    width: 100%;
+    display: block;
+    border: 0;
+    font-size: 16px;
+}

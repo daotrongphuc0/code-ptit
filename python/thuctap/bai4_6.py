@@ -1,0 +1,8 @@
+s1 = input()
+s2 = input()
+s3 = input()
+s2 = s2.split(", ")
+kq = (s1,s2,s3)
+print(kq)
+s2 = s2.split(", ")
+print(s2[1])

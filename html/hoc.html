@@ -1,33 +1,55 @@
 <!DOCTYPE html>
+
 <head>
     <title>vi du</title>
     <style>
-        #id_tmp{
-            color: red
-        }
-        .class_tmp{
+        
+
+        .class_tmp {
             color: aqua;
         }
-        .box{
+
+        .box {
             width: 60px;
-            height: 60px; 
+            height: 60px;
             color: coral;
             padding: 10px;
             border: 2px dashed rgb(82, 14, 14);
             box-sizing: border-box;
             background-clip: padding-box;
         }
-        .header{
+
+        .bg {
             width: 200px;
             height: 200px;
-            background-image: linear-gradient(0,rgb(8, 128, 76,0.5),rgb(184, 245, 127,0.5)),
-            url(https://img6.thuthuatphanmem.vn/uploads/2022/01/25/hinh-anh-gai-xinh-selfie-che-mat_040409482.jpg);
+            background-image: linear-gradient(0, rgb(8, 128, 76, 0.5), rgb(184, 245, 127, 0.5)),
+                url(https://img6.thuthuatphanmem.vn/uploads/2022/01/25/hinh-anh-gai-xinh-selfie-che-mat_040409482.jpg);
             background-size: 100%;
             background-repeat: no-repeat;
+        }
+        h2:hover{
+            color: brown;
+        }
+        h3{
+            position: relative;
+            left : 100px;
+        }
+        .box1{
+            width: 100%;
+            height: 60px;
+            background: bisque;
+        }
+        .box1::before{
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: black;
         }
     </style>
     <link rel="stylesheet" href="hoc.css">
 </head>
+
 <body>
     <!-- comment-->
     <h1>thẻ html thông dụng</h1> <!-- ví dụ về đặt biến -->
@@ -35,7 +57,8 @@
     <a href="https://www.facebook.com/">thẻ liên kết</a>
     <br> <!-- the xuong dong-->
     <img src="pt1.jpg" alt="DTP" style="width:100px;height:100px;">
-    <ul><!-- thẻ danh sách-->
+    <ul>
+        <!-- thẻ danh sách-->
         <li>dòng 1 </li>
         <li>dòng 2</li>
     </ul>
@@ -60,7 +83,7 @@
     <input name= tmp type="radio">
     <input name= tmp type="radio">
     <button>đăng kí</button> <!-- nút-->
-    <h2 id = "id_tmp"> sử dụng Id</h2> <!-- id k được phép trùng-->
+    <h2 id="id_tmp"> sử dụng Id</h2> <!-- id k được phép trùng-->
     <h2 class="class_tmp"> sử dụng class</h2>
     <!-- Đơn vị-->
     <!-- Đơn vị tuyệt đối(absolute units) : px-->
@@ -76,8 +99,42 @@
         box tmp
         <!-- 
         bg-clip đổ màu từ phần nào (padding-box, content-box)
-        box sizing: border-box là tổng kích thước padding và border bằng width va height -->
+        box sizing: border-box là tổng kích thước padding và border bằng width va height 
+        asadsda 
+        -->
     </div>
     <br>
-    <div class="header"></div>
+    <div class="bg">
+        <!-- sử dụng kèm bg image-->
+        <!-- bg size : contain lấy kích thước chiều lớn nhất mà k bi cắt xén ảnh-->
+        <!-- bg size : cover lấy kích thước chiều lớn nhất -->
+        <!-- bg origin giống bg clip, đổ màu từ phần nào -->
+        <!-- bg position : vị trí, top right center...-->
+        <!-- viết tắt: background: url() no-repeat center / contain-->
+    </div>
+    <div class="lopgia">
+        <!-- lớp giả :hover kích hoạt khi di chuyển chuột tới
+        :active  kích hoạt khi click chuột vào 
+        :first-child và :last-child lấy phần tử đầu và cuối trong list-->
+        <h2>lớp giả hover</h2>
+    </div>
+    <div class="box1">
+        <!-- CSS pseudo elements phần tử giả
+        ::before và ::after dùng để tạo khối mà không cần đến thẻ div
+        ::first-line chỉ đến dòng đầu tiên
+        ::first-letter chỉ đến kí tự đầu tiên
+        ::selection là màu khi bôi đen-->
+    </div>
+    <div>
+        <!-- CSS position thuộc tính vị trí
+            ứng dụng để tạo ra các hộp đè lên nhau 
+        - Relative(tương đối) tự phụ thuộc vào vị trí tương đối của nó có thể bị đè lên thẻ khác
+        sử dụng kèm top:?px,left ,... và top ,.. chỉ hoạt động khi có position
+        - Absolute(tuyệt đối) phụ thuộc vào vị trí thẻ cha gần nhất có thuộc tính position
+        sử dụng để thay đổi vị trí thẻ con so với thẻ cha(sử dụng top left ,..)
+        - Fixed (dính) phụ thuộc vào của sổ trình duyệt, trở thành lớp nổi(thường làm tiêu đề)
+        - Sticky(nhiều trình duyệt k sử dụng)  bám dính , kéo đến 1 điểm sẽ dính ở đó
+        -->
+        <h3>Position</h3>
+    </div>
 </body>

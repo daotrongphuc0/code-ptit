@@ -1,0 +1,27 @@
+#container {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    background-color: blue;
+    flex-direction: column;
+
+}
+
+.lop1 {
+    flex-direction: row;
+    background-color: aquamarine;
+    display: flex;
+    flex: 1;
+    margin: 20px;
+}
+
+.lop2 {
+    flex-direction: row;
+    background-color: beige;
+    margin: 10px;
+    flex: 1;
+    border: 1px solid rgb(20, 19, 19);
+}
+#l1{
+    flex-direction: column;
+}

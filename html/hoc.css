@@ -4,3 +4,24 @@
 h1 {
     color: var(--bien-mau)
 }   
+/* function 
+rgb màu 
+calc(biểu thức) hàm tính toán 
+attr() thuộc tính
+*/
+/* Flexbox
+display: flex| inline-flex hàm xác định sử dụng flexbox
+flex-direction: row|collumn xác định chiều của main exit
+flex-warp: nowrap|wrap|wrap-reveser không xuống dòng, xuống dòng, đảo chiều 
+flex-basis: <length> kích thước của main size
+justify-content: flex-start|flex-end|center|space-between|space-around căn flex item
+justify-self: như justufy-conten nhưng xét cho con
+align-content: tương tự justify nhưng xét cho cross exit
+align-self như justify-self
+flex-grow: <number> thay đổi kích thước the hướng lớn lên main size theo hướng của main size
+flex-shrink: <number> thu nhỏ lại " "
+flex: <number> viết tắt cho basis grow shrink
+order: <number> thứ tự flex-item
+flex-flow: viết tắt cho direction và wrap
+*/
+

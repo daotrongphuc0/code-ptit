@@ -1,0 +1,27 @@
+.form {
+    max-width: 600px;
+    max-height: 200px;
+}
+
+.form-container {
+    max-width: 620px;
+    padding: 32px;
+    margin: 36px auto 0 auto;
+    background-color: rgb(228, 116, 12);
+}
+
+.form__row {
+    padding: 8px 0;
+    display: flex;
+}
+
+.form__label {
+    min-width: 90px;
+}
+
+.form__input {
+    flex: 1;
+}
+#button__input{
+    margin-left: 500px;
+}

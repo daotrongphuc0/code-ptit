@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="maytinh2.css">
+    </head>
+    <body>
+        <form name="may_tinh">
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" name="manhinh" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button"  value="1" onclick="may_tinh.manhinh.value += 1"></td>
+                    <td><input type="button"  value="2" onclick="may_tinh.manhinh.value += 2"></td>
+                    <td><input type="button"  value="3" onclick="may_tinh.manhinh.value += 3"></td>
+                    <td><input type="button"  value="+" onclick="may_tinh.manhinh.value += '+'">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="may_tinh.manhinh.value += 4"></td>
+                    <td><input type="button" value="5" onclick="may_tinh.manhinh.value += 5"></td>
+                    <td><input type="button" value="6" onclick="may_tinh.manhinh.value += 6"></td>
+                    <td><input type="button" value="-" onclick="may_tinh.manhinh.value += '-'">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="may_tinh.manhinh.value += 7"></td>
+                    <td><input type="button" value="8" onclick="may_tinh.manhinh.value += 8"></td>
+                    <td><input type="button" value="9" onclick="may_tinh.manhinh.value += 9"></td>
+                    <td><input type="button" value="x" onclick="may_tinh.manhinh.value += '*'">
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td><input type="button"  value="0" onclick="may_tinh.manhinh.value += '0'">
+                    </td>
+                    <td><input type="button" id="clear" value="C" onclick="may_tinh.manhinh.value = ''">
+                    </td>
+                    <td><input type="button" value="="
+                            onclick="may_tinh.manhinh.value = eval(may_tinh.manhinh.value)"></td>
+                    <td><input type="button" value="/" onclick="may_tinh.manhinh.value += '/'">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
