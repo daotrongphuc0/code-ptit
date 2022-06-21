@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import   BOTTOM, END, LEFT, TOP, filedialog
+from tkinter import   filedialog
+from tkinter.colorchooser import askcolor
 from PIL import ImageTk, Image
 import cv2
 from cv2 import sqrt
@@ -8,6 +9,7 @@ def tinhKC(a,b,c,d):
     # tinh khoang cach giua 2 diem x(a,b) va y(c,d)
     x=sqrt((a-c)**2+(b-d)**2)
     return int(x[0])
+
 def translate(image, x, y):
     #dich chuyen anh image theo chieu x don vi va theo chieu y don vi
     M = np.float32([[1, 0, x], [0, 1, y]])
@@ -76,13 +78,13 @@ def addPicture():
         if panelA is None:   # neu hinh anh chua duoc tao thi tao hinh anh
             panelA = tk.Label(frameImage,image=img_show)
             panelA.image = img_show
-            panelA.place(x=0,y=0)   
+            panelA.place(x=(300-img_read.shape[1]/2),y=(250-img_read.shape[0]/2))   
 
         else:
 			# up date lai frame anh
             panelA.configure(image=img_show)
             panelA.image = img_show
-            panelA.place(x=0,y=0)
+            panelA.place(x=(300-img_read.shape[1]/2),y=(250-img_read.shape[0]/2))
 
 def saveImage():
     img_num_arr= translate(img_read,dc_x,dc_y)
@@ -123,7 +125,6 @@ def drawRec():
             recbutton.configure(bg="white")
             circlebutton.configure(bg="white")
 
-
 def drawCircle():
     #ve hinh tron
     global action,recbutton,linebutton,circlebutton
@@ -139,7 +140,6 @@ def drawCircle():
             recbutton.configure(bg="white")
             circlebutton.configure(bg="white")
 
-
 def layToaDoClickChuot(event):
     # lay toa do an chuot 
     if action !=0:
@@ -150,13 +150,13 @@ def layToaDoClickChuot(event):
 
 def layToaDoThaChuot(event):
     # lay toa do tha chuot va ve hinh
-    global img_num_arr,img_read,img_show,dc_x,dc_y
+    global img_num_arr,img_read,img_show,dc_x,dc_y,color
     if action ==1:#ve hinh theo hanh dong duoc chon truoc
-        cv2.line(img_read, (toado_x-dc_x,toado_y-dc_y), (event.x-dc_x,event.y-dc_y), (0, 255, 0), 2)
+        cv2.line(img_read, (toado_x-dc_x,toado_y-dc_y), (event.x-dc_x,event.y-dc_y), hex_to_bgr(color), 2)
     elif action ==2:
-        cv2.rectangle(img_read, (toado_x-dc_x,toado_y-dc_y), (event.x-dc_x,event.y-dc_y), (0, 255, 0), 2)
+        cv2.rectangle(img_read, (toado_x-dc_x,toado_y-dc_y), (event.x-dc_x,event.y-dc_y), hex_to_bgr(color), 2)
     elif action ==3:
-        cv2.circle(img_read, (toado_x-dc_x,toado_y-dc_y), tinhKC(toado_x-dc_x,toado_y-dc_y,event.x-dc_x,event.y-dc_y), (0, 255, 0), 2)
+        cv2.circle(img_read, (toado_x-dc_x,toado_y-dc_y), tinhKC(toado_x-dc_x,toado_y-dc_y,event.x-dc_x,event.y-dc_y), hex_to_bgr(color), 2)
     img_num_arr = translate(img_read,dc_x,dc_y)
     img_show = cv2.cvtColor(img_num_arr, cv2.COLOR_BGR2RGB)
     img_show = Image.fromarray(img_show)
@@ -164,8 +164,31 @@ def layToaDoThaChuot(event):
     panelA.configure(image=img_show)
     panelA.image = img_show
 
+def change_color():
+    #thay doi mau hinh ve
+    global color
+    color1 = askcolor(title="Chooser color")
+    color =color1[1]
+    selected_color.configure(bg=color)
+    print(color)
+
+def hex_to_bgr(hex):
+    # chuyen mau sang BGR de du dung trong opencv
+    bgr = []
+    for i in (5,3,1):
+        decimal = int(hex[i:i+2], 16)
+        bgr.append(decimal)
+    return tuple(bgr)
+
+def rgb_to_hex(rgb):
+    # chuyen mau tu RGB sang hexidecimal string
+    r, g, b = rgb
+    return f'#{r:02x}{g:02x}{b:02x}'
+
+
 root = tk.Tk()
 
+color = rgb_to_hex((255,0,0))  # mau hinh ve
 toado_x=0 # toa do click chuot 
 toado_y=0
 panelA = None # frame chua anh
@@ -197,7 +220,7 @@ btn.pack(side="bottom",  expand="yes", padx="10", pady="10")
 btnsave = tk.Button(root)
 
 
-#nut dieu khien 
+#nut dieu khien huong dich chuyen anh
 topbutton = tk.Button(frameHead, text="^", fg="black",command=UpdateTop)
 topbutton.place( height=30, width=30,x=112,y=20)
 
@@ -210,14 +233,22 @@ leftbutton.place( height=30, width=30,x=80,y=52)
 rightbutton = tk.Button(frameHead, text=">", fg="black",command=UpdateRight)
 rightbutton.place( height=30, width=30,x=144,y=52)
 
+# nut chon mau va mau da duoc chon
+selected_color = tk.Frame(frameHead,  background=color)
+selected_color.place( height=15, width=15,x=300,y=24)
+
+choose_color_button = tk.Button(frameHead, text="Select a color", fg="black",bg="white",command=change_color)
+choose_color_button.place( height=25, width=100,x=330,y=22)
+
+#nut dieu kien chon loai hinh ve
 linebutton = tk.Button(frameHead, text="Line", fg="black",bg="white",command=drawLine)
-linebutton.place( height=30, width=60,x=300,y=52)
+linebutton.place( height=25, width=60,x=300,y=92)
 
 recbutton = tk.Button(frameHead, text="Rectangle", fg="black",bg="white",command=drawRec)
-recbutton.place( height=30, width=60,x=400,y=52)
+recbutton.place( height=25, width=70,x=400,y=92)
 
 circlebutton = tk.Button(frameHead, text="Cricle", fg="black",bg="white",command=drawCircle)
-circlebutton.place( height=30, width=60,x=500,y=52)
+circlebutton.place( height=25, width=60,x=510,y=92)
 
 # khoi tao panel va nghe su kien click chuot
 panelA = tk.Label(frameImage)
